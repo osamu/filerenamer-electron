@@ -1,10 +1,11 @@
 {
-  "name": "electron-quick-start",
+  "name": "electron-renamer",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "package": "electron-packager .  Filerenamer --platform=all --arch=x64 --prune --out=release --overwrite"
   },
   "repository": "https://github.com/electron/electron-quick-start",
   "keywords": [
@@ -17,6 +18,11 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^3.0.4"
+    "electron": "^3.0.4",
+    "electron-packager": "^12.2.0"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.4.24",
+    "csv-parse": "3.2.0"
   }
 }

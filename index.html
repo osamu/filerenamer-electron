@@ -1,19 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
 
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
-  </body>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous">
+        <title>Filerenamer</title>
+        <script>delete module.exports </script>
+    </head>
+
+    <body>
+
+        <div id="content">
+
+            <div class="form-group mt-4 mx-4">
+
+                <div class="row mx-auto">
+                    <div class="custom-file col-12">
+                        <input type="file" class="custom-file-input" id="selectFile" accept="text/csv">
+                        <label class="custom-file-label" id='filename' for="customFile"></label>
+                    </div>
+                </div>
+
+
+                <div class="row mx-auto mt-1">
+                    <div class="custom-file mx-auto">
+                        <input type="file" class="custom-file-input" webkitdirectory id="selectFolder">
+                        <label class="custom-file-label" id="workdir" for="selectFolder"></label>
+                    </div>
+                </div>
+
+                <form>
+                    <div class="row mt-1">
+                        <div class="col-9">
+                            <select class="form-control" id="column-select"></select>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-primary" id="execute">実行</button>
+                        </div>
+                        <div class="col-1">
+                            <button type="button" class="btn btn-secondary" id="reset">リセット</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <table class="table" id="rename-table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">元ファイル名</th>
+                        <th scope="col">変更先ファイル名</th>
+                        <th scope="col">ステータス</th>
+                    </tr>
+                </thead>
+                <tbody id="rename-rows">
+                </tbody>
+            </table>
+        </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+        <script>require("./renderer.js")</script>
+    </body>
+
 </html>
